@@ -1,13 +1,6 @@
 name: Build Check
 
-on:
-  workflow_call:
-    inputs:
-      fail-on-error:
-        description: 'Fail on error'
-        required: false
-        default: false
-        type: boolean
+on:  workflow_dispatch
 
 jobs:
   build:
