@@ -4,7 +4,7 @@ import React, { createContext, useEffect, useState } from 'react';
 import { GoogleAuthProvider, getAuth, signInWithPopup, onAuthStateChanged } from 'firebase/auth';
 import { Redirect } from '@reach/router';
 import { navigate } from 'gatsby';
-import { app } from '../config/firebase';
+import { app, firebaseConfig } from '../config/firebase';
 import { avenueApi } from './api';
 
 const provider = new GoogleAuthProvider();
@@ -86,6 +86,8 @@ const AuthContextProvider = ({ children }) => {
         console.error(errorCode, errorMessage, email, credential);
       });
   };
+
+  console.log('firebaseConfig', process.env.NODE_ENV);
 
   // logout method
   const logout = () => {
